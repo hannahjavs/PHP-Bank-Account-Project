@@ -45,5 +45,27 @@
         array_push( $this->Audit, array("DEPOSIT DENIED", $amount, $this->Balance, $transDate->format('c') ) );
       }
     }
+
+    // ACCOUNT LOCKED METHOD:
+    public function Lock(){
+
+      $this->Locked = true;
+
+      $lockedDate = new DateTime();
+
+        array_push( $this->Audit, array("Account Locked", $lockedDate->format('c') ) );
+    }
+
+    // ACCOUNT UNLOCKED METHOD:
+    public function Unlock(){
+
+      $this->Locked = false;
+
+      $unlockedDate = new DateTime();
+
+        array_push( $this->Audit, array("Account Unlocked", $unlockedDate->format('c') ) );
+    }
+
+
   }
 ?>
