@@ -5,7 +5,7 @@
   // Relationships between classes must be establish before coding:
   class ISA extends BankAccount{
     // Create a public property which will reflect the amount of days they will be able to withdraw funds from the ISA account otherwise a penalty will be issued. Additional services may come with the acocunt such as holiday insurance etc...:
-    public $TimePeriod = 28;
+    public $TimePeriod = 28; // under 28 dats will incur a penalty
     public $AdditionalServices;
 
     // Methods //
@@ -51,6 +51,11 @@
 
           break; // STOP the for loop from looping through older transactions that have no relevance to us.
         }
+      }
+
+      // if the last transaction is equal to null AND the account is not locked OR a last transaction was found and the account is notlocked and it contains a number greater than the time period (28days) then the last transaction must be above 28 then we can run the next block of code and charge a penalty.
+      if ($lastTransaction === null && $this->Locked === false || $this->Locked === false && $lastTransaction > $this->TimePeriod ) {
+
       }
     }
 
