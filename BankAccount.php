@@ -17,7 +17,7 @@
     protected $Locked = false;
 
 
-    //////////METHODS//////////
+    // Methods //
 
     // Need to make sure there is a date and time for each transaction for fraud prevention!
     public function WithDraw( $amount ){
