@@ -35,6 +35,15 @@
       }
     }
 
-
+    // DEPOSIT METHOD:
+    public function Deposit( $amount ){
+      $trainsDate = new DateTime();
+      if( $this->Locked === false ){
+        $this->Balance -= $amount;
+        array_push($this -> Audit, array("DEPOSIT ACCEPTED",$amount, $this->Balance, $transDate->format('c') ) );
+      } else {
+        array_push( $this->Audit, array("DEPOSIT DENIED", $amount, $this->Balance, $transDate->format('c') ) );
+      }
+    }
   }
 ?>
